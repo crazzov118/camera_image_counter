@@ -317,7 +317,7 @@ function addOptionToCameraSelect(settingData) {
 }
 
 function getTimeAndData() {
-  limit = 1000;
+  limit = 5000;
   offset = 0;
   step = 1;
 
