@@ -1,164 +1,11 @@
-const sampleData = {
-  events: [
-    {
-      alertState: "began",
-      id: "db08dad5-0b84-410d-9220-1a388a67f924",
-      listedInfo: {},
-      multiPhaseSyncId: "12076b64-caed-423f-9daf-8f6149269069",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [
-        {
-          bottom: 0.81047229766845708,
-          index: 5,
-          left: 0.15024753570556643,
-          right: 0.39956935882568362,
-          top: 0.10346096038818359,
-        },
-      ],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T140358.021000",
-      type: "oneLine",
-    },
-    {
-      alertState: "ended",
-      id: "5ac2d3d4-c4a9-4e11-b6c5-3f091f9a5c97",
-      listedInfo: {},
-      multiPhaseSyncId: "12076b64-caed-423f-9daf-8f6149269069",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T140358.737000",
-      type: "oneLine",
-    },
-    {
-      alertState: "began",
-      id: "c73e5747-b3ad-48cd-9dfc-075dee7aacd5",
-      listedInfo: {},
-      multiPhaseSyncId: "5f73da6b-f3d7-40a7-97c5-3e292d45e718",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [
-        {
-          bottom: 0.80039188385009763,
-          index: 54,
-          left: 0.033971767425537105,
-          right: 0.25372987747192383,
-          top: 0.18061153411865233,
-        },
-      ],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T141732.537000",
-      type: "oneLine",
-    },
-    {
-      alertState: "ended",
-      id: "50f99ab5-4f9c-4215-9f17-ec350a6de4ff",
-      listedInfo: {},
-      multiPhaseSyncId: "5f73da6b-f3d7-40a7-97c5-3e292d45e718",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T141733.538000",
-      type: "oneLine",
-    },
-    {
-      alertState: "began",
-      id: "21c95a3a-5213-4c54-ad7d-2729a2f04447",
-      listedInfo: {},
-      multiPhaseSyncId: "84ad3dfa-2944-416f-a167-aaf228374132",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [
-        {
-          bottom: 0.56349308013916022,
-          index: 56,
-          left: 0.29095601081848144,
-          right: 0.42665141105651855,
-          top: 0.079516334533691391,
-        },
-      ],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T141736.824000",
-      type: "oneLine",
-    },
-    {
-      alertState: "ended",
-      id: "bb4eb26b-ca2b-4855-a7da-c5b92b4dcc18",
-      listedInfo: {},
-      multiPhaseSyncId: "84ad3dfa-2944-416f-a167-aaf228374132",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T141737.252000",
-      type: "oneLine",
-    },
-    {
-      alertState: "began",
-      id: "521f1f33-e813-4455-9168-ff0fa82b1b3c",
-      listedInfo: {},
-      multiPhaseSyncId: "1b5ae3e9-48ac-4125-bc59-e12791cda891",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [
-        {
-          bottom: 0.6224652671813965,
-          index: 302,
-          left: 0.19371392250061034,
-          right: 0.37054594993591305,
-          top: 0.092287540435791016,
-        },
-      ],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T150350.108000",
-      type: "oneLine",
-    },
-    {
-      alertState: "ended",
-      id: "f7a344c0-953e-4d2c-993d-e87562ab3872",
-      listedInfo: {},
-      multiPhaseSyncId: "1b5ae3e9-48ac-4125-bc59-e12791cda891",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T150351.108000",
-      type: "oneLine",
-    },
-    {
-      alertState: "began",
-      id: "553bbe93-e933-4736-8b5e-aa3c5917fdaa",
-      listedInfo: {},
-      multiPhaseSyncId: "f995ae80-82c0-40d3-86fd-14c1a459efbd",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [
-        {
-          bottom: 0.70408826828002935,
-          index: 366,
-          left: 0.12341459274291991,
-          right: 0.31916238784790041,
-          top: 0.12295015335083009,
-        },
-      ],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T151527.576000",
-      type: "oneLine",
-    },
-    {
-      alertState: "ended",
-      id: "536c115e-18b8-490e-94e5-17d4f14c9c97",
-      listedInfo: {},
-      multiPhaseSyncId: "f995ae80-82c0-40d3-86fd-14c1a459efbd",
-      origin: "hosts/VA-INTERFLOOR-1/AppDataDetector.2/EventSupplier",
-      rectangles: [],
-      source: "hosts/VA-INTERFLOOR-1/DeviceIpint.1/SourceEndpoint.video:0:0",
-      timestamp: "20231129T151528.583000",
-      type: "oneLine",
-    },
-  ],
-  more: true,
-};
 const LOCAL_STORAGE_EVENTS_KEY_NAME = "events_data";
 const LOCAL_STORAGE_MIN_DATE_KEY_NAME = "date";
 const LOCAL_STORAGE_CAMERA_SETTINGS_KEY_NAME = "camera_settings";
 const LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME = "current_offset";
 const FILTER_KEY_VALUE = "began";
-const MIN_DATE = processISOString(new Date("1900.01.01 00:00:00").toISOString())
+const MIN_DATE = processISOString(
+  new Date("1900.01.01 00:00:00").toISOString()
+);
 
 var data;
 var timeString;
@@ -204,13 +51,18 @@ function getUpdatedData() {
   let currentDate = new Date();
   // currentDate.setDate(1);
   currentDate.setHours(23, 59, 59);
-  let current_offset = parseInt(localStorage.getItem(LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME));
-  if(!current_offset) current_offset = 0;
+  let current_offset = parseInt(
+    localStorage.getItem(LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME)
+  );
+  if (!current_offset) current_offset = 0;
   let start_time = localStorage.getItem(LOCAL_STORAGE_MIN_DATE_KEY_NAME);
-  if(!start_time) {
+  if (!start_time) {
     let cDate = new Date();
     cDate.setHours(0, 0, 0);
-    localStorage.setItem(LOCAL_STORAGE_MIN_DATE_KEY_NAME, processISOString(cDate.toISOString()));
+    localStorage.setItem(
+      LOCAL_STORAGE_MIN_DATE_KEY_NAME,
+      processISOString(cDate.toISOString())
+    );
   }
   const param = {
     setting: JSON.stringify(current_setting),
@@ -218,7 +70,7 @@ function getUpdatedData() {
     limit,
     offset: current_offset,
     start_time: localStorage.getItem(LOCAL_STORAGE_MIN_DATE_KEY_NAME),
-    end_time: processISOString(currentDate.toISOString())
+    end_time: processISOString(currentDate.toISOString()),
   };
   fetch(SERVER_URL, {
     headers: {
@@ -238,8 +90,11 @@ function getUpdatedData() {
       try {
         data = JSON.parse(response.data);
         console.log(data);
-        if(data.events.length > 0) {
-          localStorage.setItem(LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME, current_offset + data.events.length);
+        if (data.events.length > 0) {
+          localStorage.setItem(
+            LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME,
+            current_offset + data.events.length
+          );
         }
         doProcess(data);
       } catch (err) {
@@ -249,9 +104,6 @@ function getUpdatedData() {
     .catch((err) => {
       console.log(err);
       console.log("Data fetching failed. Try to get from sample data");
-      data = { ...sampleData };
-      console.log(data);
-      doProcess(data);
     });
 }
 
@@ -274,7 +126,7 @@ function getNumberOfValidData(processingData) {
     console.log(results);
     cnt = results.length;
   }
-    count_display_dom.html(cnt);
+  count_display_dom.html(cnt);
   console.log("Number is " + cnt);
   return cnt;
 }
@@ -402,21 +254,25 @@ function loadCameraSettings() {
   );
   if (!settings) {
     settings = [];
-    settings = [{
-      id: 1,
-      server_id: "VA-INTERFLOOR-1",
-      server_ip: "192.168.20.34",
-      camera_name: "DeviceIpint.1/SourceEndpoint.video:0:0",
-      user_name: "root",
-      password: "root"
-    }]
+    settings = [
+      {
+        id: 1,
+        server_id: "VA-INTERFLOOR-1",
+        server_ip: "192.168.20.34",
+        camera_name: "DeviceIpint.1/SourceEndpoint.video:0:0",
+        user_name: "root",
+        password: "root",
+      },
+    ];
     // return;
-    localStorage.setItem(LOCAL_STORAGE_CAMERA_SETTINGS_KEY_NAME, JSON.stringify(settings));
+    localStorage.setItem(
+      LOCAL_STORAGE_CAMERA_SETTINGS_KEY_NAME,
+      JSON.stringify(settings)
+    );
   }
   for (let setting of settings) {
     addOptionToCameraSelect(setting);
   }
-
 }
 
 function initListeners() {
@@ -487,7 +343,7 @@ function getTimeAndData() {
   }, DATA_FETCHING_PERIOD);
 }
 
-  function processISOString(str) {
-    return str.replace(/-/g, "").replace(/:/g, "").replace("Z", "");
-  }
+function processISOString(str) {
+  return str.replace(/-/g, "").replace(/:/g, "").replace("Z", "");
+}
 init();
