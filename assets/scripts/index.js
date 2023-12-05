@@ -158,11 +158,7 @@ const LOCAL_STORAGE_MIN_DATE_KEY_NAME = "date";
 const LOCAL_STORAGE_CAMERA_SETTINGS_KEY_NAME = "camera_settings";
 const LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME = "current_offset";
 const FILTER_KEY_VALUE = "began";
-const MIN_DATE = new Date("1900.01.01 00:00:00")
-  .toISOString()
-  .replace(/-/g, "")
-  .replace(/:/g, "")
-  .replace("Z", "");
+const MIN_DATE = processISOString(new Date("1900.01.01 00:00:00").toISOString())
 
 var data;
 var timeString;
@@ -208,18 +204,13 @@ function getUpdatedData() {
   let currentDate = new Date();
   // currentDate.setDate(1);
   currentDate.setHours(23, 59, 59);
-  let current_offset = parseInt(
-    localStorage.getItem(LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME)
-  );
-  if (!current_offset) current_offset = 0;
+  let current_offset = parseInt(localStorage.getItem(LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME));
+  if(!current_offset) current_offset = 0;
   let start_time = localStorage.getItem(LOCAL_STORAGE_MIN_DATE_KEY_NAME);
-  if (!start_time) {
+  if(!start_time) {
     let cDate = new Date();
     cDate.setHours(0, 0, 0);
-    localStorage.setItem(
-      LOCAL_STORAGE_MIN_DATE_KEY_NAME,
-      cDate.toISOString().replace(/-/g, "").replace(/:/g, "").replace("Z", "")
-    );
+    localStorage.setItem(LOCAL_STORAGE_MIN_DATE_KEY_NAME, processISOString(cDate.toISOString()));
   }
   const param = {
     setting: JSON.stringify(current_setting),
@@ -227,11 +218,7 @@ function getUpdatedData() {
     limit,
     offset: current_offset,
     start_time: localStorage.getItem(LOCAL_STORAGE_MIN_DATE_KEY_NAME),
-    end_time: currentDate
-      .toISOString()
-      .replace(/-/g, "")
-      .replace(/:/g, "")
-      .replace("Z", ""),
+    end_time: processISOString(currentDate.toISOString())
   };
   fetch(SERVER_URL, {
     headers: {
@@ -251,11 +238,8 @@ function getUpdatedData() {
       try {
         data = JSON.parse(response.data);
         console.log(data);
-        if (data.events.length > 0) {
-          localStorage.setItem(
-            LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME,
-            current_offset + data.events.length
-          );
+        if(data.events.length > 0) {
+          localStorage.setItem(LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME, current_offset + data.events.length);
         }
         doProcess(data);
       } catch (err) {
@@ -290,7 +274,7 @@ function getNumberOfValidData(processingData) {
     console.log(results);
     cnt = results.length;
   }
-  count_display_dom.html(cnt);
+    count_display_dom.html(cnt);
   console.log("Number is " + cnt);
   return cnt;
 }
@@ -348,11 +332,7 @@ function resetTime() {
   // currentTime.setDate(1);
   localStorage.setItem(
     LOCAL_STORAGE_MIN_DATE_KEY_NAME,
-    currentTime
-      .toISOString()
-      .replace(/-/g, "")
-      .replace(/:/g, "")
-      .replace("Z", "")
+    processISOString(currentTime.toISOString())
   );
   localStorage.setItem(LOCAL_STORAGE_CURRENT_OFFSET_KEY_NAME, 0);
   getUpdatedData();
@@ -422,25 +402,21 @@ function loadCameraSettings() {
   );
   if (!settings) {
     settings = [];
-    settings = [
-      {
-        id: 1,
-        server_id: "VA-INTERFLOOR-1",
-        server_ip: "192.168.20.34",
-        camera_name: "DeviceIpint.1/SourceEndpoint.video:0:0",
-        user_name: "root",
-        password: "root",
-      },
-    ];
+    settings = [{
+      id: 1,
+      server_id: "VA-INTERFLOOR-1",
+      server_ip: "192.168.20.34",
+      camera_name: "DeviceIpint.1/SourceEndpoint.video:0:0",
+      user_name: "root",
+      password: "root"
+    }]
     // return;
-    localStorage.setItem(
-      LOCAL_STORAGE_CAMERA_SETTINGS_KEY_NAME,
-      JSON.stringify(settings)
-    );
+    localStorage.setItem(LOCAL_STORAGE_CAMERA_SETTINGS_KEY_NAME, JSON.stringify(settings));
   }
   for (let setting of settings) {
     addOptionToCameraSelect(setting);
   }
+
 }
 
 function initListeners() {
@@ -491,11 +467,7 @@ function getTimeAndData() {
 
   let currentTime = new Date();
   // currentTime.setDate(1);
-  const currentTimeString = currentTime
-    .toISOString()
-    .replace(/-/g, "")
-    .replace(/:/g, "")
-    .replace("Z", "");
+  const currentTimeString = processISOString(currentTime.toISOString());
   let timeString = localStorage.getItem(LOCAL_STORAGE_MIN_DATE_KEY_NAME);
   if (!timeString) {
     timeString = currentTimeString.split("T")[0] + "T000000";
@@ -515,4 +487,7 @@ function getTimeAndData() {
   }, DATA_FETCHING_PERIOD);
 }
 
+  function processISOString(str) {
+    return str.replace(/-/g, "").replace(/:/g, "").replace("Z", "");
+  }
 init();
